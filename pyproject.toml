@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "g2bp"
-version = "0.0.0"
+version = "1.0.0"
 description = "G2BP: A GFF to gene BED Converter driven by Protein ID."
 dependencies = []
 requires-python = ">=3.8"

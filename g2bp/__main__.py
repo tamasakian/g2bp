@@ -3,6 +3,8 @@
 import argparse
 import sys
 
+from g2bp import function
+
 def main():
     args = parse_args()
     function = functions[args.function]
@@ -19,7 +21,9 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-functions = {}
+functions = {
+    "convert": function.convert
+}
 
 if __name__ == "__main__":
     main()
