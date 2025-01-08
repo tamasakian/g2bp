@@ -13,7 +13,7 @@ Functions:
 
 def txt(gff_file: str, bed_file: str, protein_file: str) -> None:
     """
-    Convert a genome GFF3 file -> a gene BED file using a text  file containing Protein IDs.
+    Convert a genome GFF3 file -> a gene BED file using a text file containing Protein IDs.
 
     Args:
         gff_file: Path to the input genome GFF file.
@@ -28,7 +28,7 @@ def txt(gff_file: str, bed_file: str, protein_file: str) -> None:
 
 def fasta(gff_file: str, bed_file: str, protein_file: str) -> None:
     """
-    Convert a genome GFF3 file -> a gene BED file using a text  file containing Protein IDs.
+    Convert a genome GFF3 file -> a gene BED file using a FASTA file containing Protein IDs.
 
     Args:
         gff_file: Path to the input genome GFF file.
