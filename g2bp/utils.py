@@ -112,7 +112,7 @@ def load_cds_attributes(gff_file: str, protein_list: list, gene_dict: dict) -> l
                         continue
                     for gene_start, gene_end in gene_dict[seq_name]:
                         if gene_start <= int(start) and int(end) <= gene_end:
-                            gene_start = int(gene_start) - 1
+                            gene_start = int(gene_start) - 1 ## GFF(1-based) -> BED(0-based)
                             bed_list.append([seq_name, str(gene_start), str(gene_end), protein_id])
                             protein_list.remove(protein_id)
                             break
