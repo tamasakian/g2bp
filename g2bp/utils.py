@@ -3,7 +3,7 @@
 from collections import defaultdict
 
 """
-Function Library for functions.py.
+Function Library for functions.
 
 Functions:
     parse_text_file:  Parse text_file  to generate a list of Protein IDs.
