@@ -3,7 +3,7 @@
 from g2bp import utils
 
 """
-Function Library for __main__.py.
+Function Library for G2BP.
 
 Functions:
     txt:   Convert a genome GFF3 file -> a gene BED file using a text  file containing Protein IDs.
