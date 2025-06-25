@@ -131,3 +131,16 @@ def write_bed_file(bed_file: str, bed_list: list) -> None:
     with open(bed_file, "w") as bed_handle:
         for bed_entry in bed_list:
             bed_handle.write("\t".join(bed_entry) + "\n")
+
+def write_bed_file_mcscanx(bed_file: str, bed_list: list) -> None:
+    """
+    Write the BED file with MCScanX format.
+
+    Args:
+        bed_file: Path to the output BED file.
+        bed_list: A list of BED entries.
+    """
+    with open(bed_file, "w") as bed_handle:
+        for entry in bed_list:
+            seq_name, start, end, gene_name = entry
+            bed_handle.write(f"{seq_name}\t{gene_name}\t{start}\t{end}\n")

@@ -23,7 +23,8 @@ def parse_args():
 
 functions = {
     "txt": functions.txt,
-    "fasta": functions.fasta
+    "fasta": functions.fasta,
+    "fasta4mcscanx": functions.fasta4mcscanx,
 }
 
 if __name__ == "__main__":
