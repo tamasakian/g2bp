@@ -53,5 +53,5 @@ def fasta4mcscanx(gff_file: str, bed_file: str, protein_file: str) -> None:
     protein_list = utils.parse_fasta_file(fasta_file=protein_file)
     gene_dict = utils.load_gene_coordinates(gff_file=gff_file)
     bed_list = utils.load_cds_attributes(gff_file=gff_file, protein_list=protein_list, gene_dict=gene_dict)
-    utils.write_mcscanx_bed_file(bed_file=bed_file, bed_list=bed_list)
+    utils.write_bed_file_mcscanx(bed_file=bed_file, bed_list=bed_list)
 
