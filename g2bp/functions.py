@@ -8,6 +8,7 @@ Function Library for G2BP.
 Functions:
     txt:   Convert a genome GFF3 file -> a gene BED file using a text  file containing Protein IDs.
     fasta: Convert a genome GFF3 file -> a gene BED file using a FASTA file containing Protein IDs.
+    fasta4mcscanx: Convert a genome GFF3 file -> a gene BED file for MCScanX.
 
 """
 

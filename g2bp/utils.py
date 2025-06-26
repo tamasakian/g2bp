@@ -11,6 +11,7 @@ Functions:
     load_gene_coordinates: Parse gff_file to store gene coordinates in a dictionary.
     load_cds_attributes: Parse gff_file to map Protein IDs to their corresponding gene coordinates.
     write_bed_file: Write the BED file.
+    write_bed_file_mcscanx: Write the BED file with MCScanX format.
 
 """
 
