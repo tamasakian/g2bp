@@ -3,7 +3,7 @@
 **G2BP**: A GFF to gene BED Converter driven by Protein ID.
 
 ## Version
-Current version: `v1.2.0`
+Current version: `v1.3.0`
 
 ## Install
 
@@ -32,4 +32,10 @@ For FASTA files (sequence name in header):
 
 ```
 python3 -m g2bp fasta [GFF filename] [BED filename] [Protein ID filename]
+```
+
+If you want to use MCScanX, you can change the output format to MCScanX compatible BED format.
+
+```
+python3 -m g2bp fasta4mcscanx [GFF filename] [BED filename] [Protein ID filename]
 ```
