@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from collections import defaultdict
+import re
 
 """
 Function Library for functions.
@@ -145,3 +146,53 @@ def write_bed_file_mcscanx(bed_file: str, bed_list: list) -> None:
         for entry in bed_list:
             seq_name, start, end, gene_name = entry
             bed_handle.write(f"{seq_name}\t{gene_name}\t{start}\t{end}\n")
+
+
+def load_cds_attributes_test(gff_file: str, protein_list: list, gene_dict: dict) -> list:
+    """
+    Parse gff_file to generate a BED file for testing.
+
+    Args:
+        gff_file: Path to the input genome GFF file.
+        protein_list: A list of protein IDs to match.
+        gene_dict: A dictionary with gene coordinates.
+
+    Returns:
+        list: A list of genes in BED format for testing.
+    """
+    protein_set = set(protein_list)
+    protein_to_gene = dict()
+    bed_list = []
+    with open(gff_file, "r") as gff_handle:
+        for line in gff_handle:
+            if line.startswith("#"):
+                continue
+            li = line.strip().split("\t")
+            if len(li) != 9:
+                continue
+            seq_name, source, feature, start, end, score, strand, phase, attributes = li
+
+            if feature != "CDS":
+                continue
+
+            match = re.search(r"protein_id=([^;]+)", attributes)
+            if not match:
+                continue
+
+            protein_id = match.group(1)
+            if protein_id not in protein_set:
+                continue
+            if seq_name not in gene_dict:
+                continue
+
+            for gene_start, gene_end in gene_dict[seq_name]:
+                if gene_start <= int(start) and int(end) <= gene_end:
+                    length = int(gene_end) - int(gene_start)
+                    if (protein_id not in protein_to_gene or length > int(protein_to_gene[protein_id][2]) - int(protein_to_gene[protein_id][1])):
+                        protein_to_gene[protein_id] = (seq_name, gene_start - 1, gene_end, length)
+                    break
+
+    for protein_id, (seq_name, start, end, length) in protein_to_gene.items():
+        bed_list.append([seq_name, str(start), str(end), protein_id])
+
+    return bed_list
